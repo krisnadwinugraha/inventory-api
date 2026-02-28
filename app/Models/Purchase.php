@@ -9,4 +9,16 @@ class Purchase extends Model
 {
     /** @use HasFactory<\Database\Factories\PurchaseFactory> */
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(PurchaseItem::class);
+    }
 }

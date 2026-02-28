@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('stock_movements', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->string('reference_type');
+            $table->unsignedBigInteger('reference_id');
+            $table->integer('qty_change');
+            $table->integer('qty_before');
+            $table->integer('qty_after');
+            $table->text('notes')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+
+            $table->index('product_id');
+            $table->index(['reference_type', 'reference_id']);
         });
     }
 

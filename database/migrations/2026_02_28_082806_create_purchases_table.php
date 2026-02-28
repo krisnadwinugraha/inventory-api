@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vendor_id')->constrained()->cascadeOnDelete();
+            $table->string('invoice_number')->unique();
+            $table->date('purchase_date');
+            $table->decimal('total', 15, 2)->default(0);
+            $table->text('notes')->nullable();
             $table->timestamps();
+
+            $table->index('vendor_id');
+            $table->index('purchase_date');
         });
     }
 
