@@ -1,0 +1,2073 @@
+{
+  "info": {
+    "_postman_id": "e365cdc0-0c83-497b-8022-970f7cc2fedf",
+    "name": "Inventory API",
+    "description": "Complete Postman collection for Mini Inventory System - Backend PHP Developer Assessment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21937444"
+  },
+  "item": [
+    {
+      "name": "Purchase",
+      "item": [
+        {
+          "name": "Create Purchase - Valid",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-0001\",\n    \"purchase_date\": \"2026-02-28\",\n    \"notes\": \"First purchase\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 10,\n            \"price\": 50000\n        },\n        {\n            \"product_id\": 2,\n            \"qty\": 5,\n            \"price\": 120000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Happy path. Creates a purchase with 2 items. Expect 201 with full purchase data."
+          },
+          "response": [
+            {
+              "name": "Create Purchase - Valid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-0001\",\n    \"purchase_date\": \"2026-02-28\",\n    \"notes\": \"First purchase\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 10,\n            \"price\": 50000\n        },\n        {\n            \"product_id\": 2,\n            \"qty\": 5,\n            \"price\": 120000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:19:26 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase created successfully.\",\n    \"data\": {\n        \"vendor_id\": 1,\n        \"invoice_number\": \"INV-0001\",\n        \"purchase_date\": \"2026-02-28\",\n        \"notes\": \"First purchase\",\n        \"total\": 1100000,\n        \"updated_at\": \"2026-02-28T09:19:26.000000Z\",\n        \"created_at\": \"2026-02-28T09:19:26.000000Z\",\n        \"id\": 2,\n        \"items\": [\n            {\n                \"id\": 2,\n                \"purchase_id\": 2,\n                \"product_id\": 1,\n                \"qty\": 10,\n                \"price\": \"50000.00\",\n                \"subtotal\": \"500000.00\",\n                \"created_at\": \"2026-02-28T09:19:26.000000Z\",\n                \"updated_at\": \"2026-02-28T09:19:26.000000Z\",\n                \"product\": {\n                    \"id\": 1,\n                    \"name\": \"aut sed ad\",\n                    \"sku\": \"SKU-6431\",\n                    \"unit\": \"kg\",\n                    \"current_stock\": 10,\n                    \"min_stock\": 16,\n                    \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n                    \"updated_at\": \"2026-02-28T09:19:26.000000Z\"\n                }\n            },\n            {\n                \"id\": 3,\n                \"purchase_id\": 2,\n                \"product_id\": 2,\n                \"qty\": 5,\n                \"price\": \"120000.00\",\n                \"subtotal\": \"600000.00\",\n                \"created_at\": \"2026-02-28T09:19:26.000000Z\",\n                \"updated_at\": \"2026-02-28T09:19:26.000000Z\",\n                \"product\": {\n                    \"id\": 2,\n                    \"name\": \"debitis iste est\",\n                    \"sku\": \"SKU-6799\",\n                    \"unit\": \"box\",\n                    \"current_stock\": 5,\n                    \"min_stock\": 20,\n                    \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n                    \"updated_at\": \"2026-02-28T09:19:26.000000Z\"\n                }\n            }\n        ],\n        \"vendor\": {\n            \"id\": 1,\n            \"name\": \"Reichert Inc\",\n            \"email\": \"markus42@johnson.com\",\n            \"phone\": \"+1-931-677-6797\",\n            \"address\": \"7809 Effertz Radial\\nSouth Emeraldfurt, NE 77714\",\n            \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n            \"updated_at\": \"2026-02-28T08:48:30.000000Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Purchase - Second Valid",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 2,\n    \"invoice_number\": \"INV-0002\",\n    \"purchase_date\": \"2026-02-20\",\n    \"notes\": \"Second purchase\",\n    \"items\": [\n        {\n            \"product_id\": 3,\n            \"qty\": 20,\n            \"price\": 75000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Second valid purchase for a different vendor. Useful for populating report data."
+          },
+          "response": [
+            {
+              "name": "Create Purchase - Second Valid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 2,\n    \"invoice_number\": \"INV-0002\",\n    \"purchase_date\": \"2026-02-20\",\n    \"notes\": \"Second purchase\",\n    \"items\": [\n        {\n            \"product_id\": 3,\n            \"qty\": 20,\n            \"price\": 75000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:12 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase created successfully.\",\n    \"data\": {\n        \"vendor_id\": 2,\n        \"invoice_number\": \"INV-0002\",\n        \"purchase_date\": \"2026-02-20\",\n        \"notes\": \"Second purchase\",\n        \"total\": 1500000,\n        \"updated_at\": \"2026-02-28T09:20:12.000000Z\",\n        \"created_at\": \"2026-02-28T09:20:12.000000Z\",\n        \"id\": 3,\n        \"items\": [\n            {\n                \"id\": 4,\n                \"purchase_id\": 3,\n                \"product_id\": 3,\n                \"qty\": 20,\n                \"price\": \"75000.00\",\n                \"subtotal\": \"1500000.00\",\n                \"created_at\": \"2026-02-28T09:20:12.000000Z\",\n                \"updated_at\": \"2026-02-28T09:20:12.000000Z\",\n                \"product\": {\n                    \"id\": 3,\n                    \"name\": \"ad perferendis rem\",\n                    \"sku\": \"SKU-3061\",\n                    \"unit\": \"box\",\n                    \"current_stock\": 20,\n                    \"min_stock\": 8,\n                    \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n                    \"updated_at\": \"2026-02-28T09:20:12.000000Z\"\n                }\n            }\n        ],\n        \"vendor\": {\n            \"id\": 2,\n            \"name\": \"Kihn, Stark and Murazik\",\n            \"email\": \"jaclyn.kuhlman@hyatt.com\",\n            \"phone\": \"+1.941.836.7488\",\n            \"address\": \"8562 Wiza Junction\\nNorth Keatonborough, MO 78105\",\n            \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n            \"updated_at\": \"2026-02-28T08:48:30.000000Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Purchase - Third Valid",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-0003\",\n    \"purchase_date\": \"2026-01-15\",\n    \"notes\": \"Restock order\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 50,\n            \"price\": 48000\n        },\n        {\n            \"product_id\": 4,\n            \"qty\": 30,\n            \"price\": 95000\n        },\n        {\n            \"product_id\": 5,\n            \"qty\": 15,\n            \"price\": 200000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Third valid purchase with 3 items. Creates more data for the report."
+          },
+          "response": [
+            {
+              "name": "Create Purchase - Third Valid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-0003\",\n    \"purchase_date\": \"2026-01-15\",\n    \"notes\": \"Restock order\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 50,\n            \"price\": 48000\n        },\n        {\n            \"product_id\": 4,\n            \"qty\": 30,\n            \"price\": 95000\n        },\n        {\n            \"product_id\": 5,\n            \"qty\": 15,\n            \"price\": 200000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:16 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase created successfully.\",\n    \"data\": {\n        \"vendor_id\": 1,\n        \"invoice_number\": \"INV-0003\",\n        \"purchase_date\": \"2026-01-15\",\n        \"notes\": \"Restock order\",\n        \"total\": 8250000,\n        \"updated_at\": \"2026-02-28T09:20:16.000000Z\",\n        \"created_at\": \"2026-02-28T09:20:16.000000Z\",\n        \"id\": 4,\n        \"items\": [\n            {\n                \"id\": 5,\n                \"purchase_id\": 4,\n                \"product_id\": 1,\n                \"qty\": 50,\n                \"price\": \"48000.00\",\n                \"subtotal\": \"2400000.00\",\n                \"created_at\": \"2026-02-28T09:20:16.000000Z\",\n                \"updated_at\": \"2026-02-28T09:20:16.000000Z\",\n                \"product\": {\n                    \"id\": 1,\n                    \"name\": \"aut sed ad\",\n                    \"sku\": \"SKU-6431\",\n                    \"unit\": \"kg\",\n                    \"current_stock\": 60,\n                    \"min_stock\": 16,\n                    \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n                    \"updated_at\": \"2026-02-28T09:20:16.000000Z\"\n                }\n            },\n            {\n                \"id\": 6,\n                \"purchase_id\": 4,\n                \"product_id\": 4,\n                \"qty\": 30,\n                \"price\": \"95000.00\",\n                \"subtotal\": \"2850000.00\",\n                \"created_at\": \"2026-02-28T09:20:16.000000Z\",\n                \"updated_at\": \"2026-02-28T09:20:16.000000Z\",\n                \"product\": {\n                    \"id\": 4,\n                    \"name\": \"delectus officiis dolores\",\n                    \"sku\": \"SKU-3315\",\n                    \"unit\": \"liter\",\n                    \"current_stock\": 30,\n                    \"min_stock\": 12,\n                    \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n                    \"updated_at\": \"2026-02-28T09:20:16.000000Z\"\n                }\n            },\n            {\n                \"id\": 7,\n                \"purchase_id\": 4,\n                \"product_id\": 5,\n                \"qty\": 15,\n                \"price\": \"200000.00\",\n                \"subtotal\": \"3000000.00\",\n                \"created_at\": \"2026-02-28T09:20:16.000000Z\",\n                \"updated_at\": \"2026-02-28T09:20:16.000000Z\",\n                \"product\": {\n                    \"id\": 5,\n                    \"name\": \"eos omnis sunt\",\n                    \"sku\": \"SKU-5073\",\n                    \"unit\": \"liter\",\n                    \"current_stock\": 15,\n                    \"min_stock\": 5,\n                    \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n                    \"updated_at\": \"2026-02-28T09:20:16.000000Z\"\n                }\n            }\n        ],\n        \"vendor\": {\n            \"id\": 1,\n            \"name\": \"Reichert Inc\",\n            \"email\": \"markus42@johnson.com\",\n            \"phone\": \"+1-931-677-6797\",\n            \"address\": \"7809 Effertz Radial\\nSouth Emeraldfurt, NE 77714\",\n            \"created_at\": \"2026-02-28T08:48:30.000000Z\",\n            \"updated_at\": \"2026-02-28T08:48:30.000000Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Qty is Zero",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-001\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 0,\n            \"price\": 50000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422 Unprocessable Entity. qty must be minimum 1."
+          },
+          "response": [
+            {
+              "name": "FAIL - Qty is Zero",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-001\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 0,\n            \"price\": 50000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:22 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Quantity must be greater than zero.\",\n    \"errors\": {\n        \"items.0.qty\": [\n            \"Quantity must be greater than zero.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Qty is Negative",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-002\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": -5,\n            \"price\": 50000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422 Unprocessable Entity. Negative qty is rejected."
+          },
+          "response": [
+            {
+              "name": "FAIL - Qty is Negative",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-002\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": -5,\n            \"price\": 50000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:26 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Quantity must be greater than zero.\",\n    \"errors\": {\n        \"items.0.qty\": [\n            \"Quantity must be greater than zero.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Price is Zero",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-003\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 10,\n            \"price\": 0\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422 Unprocessable Entity. Price must be minimum 0.01."
+          },
+          "response": [
+            {
+              "name": "FAIL - Price is Zero",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-003\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 10,\n            \"price\": 0\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:30 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Price must be greater than zero.\",\n    \"errors\": {\n        \"items.0.price\": [\n            \"Price must be greater than zero.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Vendor Not Found",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 9999,\n    \"invoice_number\": \"INV-FAIL-004\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 10,\n            \"price\": 50000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422. Vendor ID 9999 does not exist in database."
+          },
+          "response": [
+            {
+              "name": "FAIL - Vendor Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 9999,\n    \"invoice_number\": \"INV-FAIL-004\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 10,\n            \"price\": 50000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:34 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Vendor not found.\",\n    \"errors\": {\n        \"vendor_id\": [\n            \"Vendor not found.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Product Not Found",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-005\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 9999,\n            \"qty\": 10,\n            \"price\": 50000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422. Product ID 9999 does not exist in database."
+          },
+          "response": [
+            {
+              "name": "FAIL - Product Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-005\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 9999,\n            \"qty\": 10,\n            \"price\": 50000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:38 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"One or more products do not exist.\",\n    \"errors\": {\n        \"items.0.product_id\": [\n            \"One or more products do not exist.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Duplicate Invoice Number",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-0001\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 5,\n            \"price\": 50000\n        }\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422. INV-0001 was already used. Invoice number must be unique."
+          },
+          "response": [
+            {
+              "name": "FAIL - Duplicate Invoice Number",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-0001\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 5,\n            \"price\": 50000\n        }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:43 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Invoice number already exists.\",\n    \"errors\": {\n        \"invoice_number\": [\n            \"Invoice number already exists.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Empty Items Array",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-006\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": []\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422. Items array cannot be empty. min:1 rule applied."
+          },
+          "response": [
+            {
+              "name": "FAIL - Empty Items Array",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"vendor_id\": 1,\n    \"invoice_number\": \"INV-FAIL-006\",\n    \"purchase_date\": \"2026-02-28\",\n    \"items\": []\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:47 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"At least one item is required.\",\n    \"errors\": {\n        \"items\": [\n            \"At least one item is required.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Missing Required Fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"notes\": \"Missing vendor, invoice, date, and items\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            },
+            "description": "Expect 422 with multiple validation errors for all required fields."
+          },
+          "response": [
+            {
+              "name": "FAIL - Missing Required Fields",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"notes\": \"Missing vendor, invoice, date, and items\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/purchase",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "purchase"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:20:52 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"The vendor id field is required. (and 3 more errors)\",\n    \"errors\": {\n        \"vendor_id\": [\n            \"The vendor id field is required.\"\n        ],\n        \"invoice_number\": [\n            \"The invoice number field is required.\"\n        ],\n        \"purchase_date\": [\n            \"The purchase date field is required.\"\n        ],\n        \"items\": [\n            \"At least one item is required.\"\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Purchase Summary - Full Date Range",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01&end_date=2026-12-31",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2026-12-31"
+                }
+              ]
+            },
+            "description": "Returns all vendors with their total purchases, quantity, and nominal for the full year. Sorted by total nominal DESC."
+          },
+          "response": [
+            {
+              "name": "Purchase Summary - Full Date Range",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01&end_date=2026-12-31",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2026-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-12-31"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:30:06 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase summary retrieved successfully.\",\n    \"filters\": {\n        \"start_date\": \"2026-01-01\",\n        \"end_date\": \"2026-12-31\",\n        \"vendor_id\": null\n    },\n    \"total_vendors\": 2,\n    \"data\": [\n        {\n            \"vendor_id\": 1,\n            \"vendor_name\": \"Reichert Inc\",\n            \"total_purchases\": 2,\n            \"total_quantity\": \"110\",\n            \"total_nominal\": \"9350000.00\"\n        },\n        {\n            \"vendor_id\": 2,\n            \"vendor_name\": \"Kihn, Stark and Murazik\",\n            \"total_purchases\": 1,\n            \"total_quantity\": \"20\",\n            \"total_nominal\": \"1500000.00\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Purchase Summary - Filtered by Vendor",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01&end_date=2026-12-31&vendor_id=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2026-12-31"
+                },
+                {
+                  "key": "vendor_id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Returns summary for vendor_id=1 only. vendor_id filter is optional."
+          },
+          "response": [
+            {
+              "name": "Purchase Summary - Filtered by Vendor",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01&end_date=2026-12-31&vendor_id=1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2026-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-12-31"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:30:13 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase summary retrieved successfully.\",\n    \"filters\": {\n        \"start_date\": \"2026-01-01\",\n        \"end_date\": \"2026-12-31\",\n        \"vendor_id\": \"1\"\n    },\n    \"total_vendors\": 1,\n    \"data\": [\n        {\n            \"vendor_id\": 1,\n            \"vendor_name\": \"Reichert Inc\",\n            \"total_purchases\": 2,\n            \"total_quantity\": \"110\",\n            \"total_nominal\": \"9350000.00\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Purchase Summary - Narrow Date Range",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?start_date=2026-02-01&end_date=2026-02-28",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2026-02-01"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2026-02-28"
+                }
+              ]
+            },
+            "description": "February only. Tests that date range filter correctly excludes January purchases."
+          },
+          "response": [
+            {
+              "name": "Purchase Summary - Narrow Date Range",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?start_date=2026-02-01&end_date=2026-02-28",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2026-02-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-02-28"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:30:18 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase summary retrieved successfully.\",\n    \"filters\": {\n        \"start_date\": \"2026-02-01\",\n        \"end_date\": \"2026-02-28\",\n        \"vendor_id\": null\n    },\n    \"total_vendors\": 2,\n    \"data\": [\n        {\n            \"vendor_id\": 2,\n            \"vendor_name\": \"Kihn, Stark and Murazik\",\n            \"total_purchases\": 1,\n            \"total_quantity\": \"20\",\n            \"total_nominal\": \"1500000.00\"\n        },\n        {\n            \"vendor_id\": 1,\n            \"vendor_name\": \"Reichert Inc\",\n            \"total_purchases\": 1,\n            \"total_quantity\": \"15\",\n            \"total_nominal\": \"1100000.00\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Purchase Summary - Vendor + Narrow Date",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?start_date=2026-02-01&end_date=2026-02-28&vendor_id=2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2026-02-01"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2026-02-28"
+                },
+                {
+                  "key": "vendor_id",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "Both filters active. Vendor 2 in February only."
+          },
+          "response": [
+            {
+              "name": "Purchase Summary - Vendor + Narrow Date",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?start_date=2026-02-01&end_date=2026-02-28&vendor_id=2",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2026-02-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-02-28"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:30:23 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase summary retrieved successfully.\",\n    \"filters\": {\n        \"start_date\": \"2026-02-01\",\n        \"end_date\": \"2026-02-28\",\n        \"vendor_id\": \"2\"\n    },\n    \"total_vendors\": 1,\n    \"data\": [\n        {\n            \"vendor_id\": 2,\n            \"vendor_name\": \"Kihn, Stark and Murazik\",\n            \"total_purchases\": 1,\n            \"total_quantity\": \"20\",\n            \"total_nominal\": \"1500000.00\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Missing start_date",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?end_date=2026-12-31",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "end_date",
+                  "value": "2026-12-31"
+                }
+              ]
+            },
+            "description": "Expect 422. start_date is required."
+          },
+          "response": [
+            {
+              "name": "FAIL - Missing start_date",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?end_date=2026-12-31",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_date",
+                      "value": "2026-12-31"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:31:22 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Start date is required.\",\n    \"errors\": {\n        \"start_date\": [\n            \"Start date is required.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Missing end_date",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2026-01-01"
+                }
+              ]
+            },
+            "description": "Expect 422. end_date is required."
+          },
+          "response": [
+            {
+              "name": "FAIL - Missing end_date",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2026-01-01"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:31:28 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"End date is required.\",\n    \"errors\": {\n        \"end_date\": [\n            \"End date is required.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - No Params At All",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ]
+            },
+            "description": "Expect 422 with both start_date and end_date required errors."
+          },
+          "response": [
+            {
+              "name": "FAIL - No Params At All",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:31:34 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Start date is required. (and 1 more error)\",\n    \"errors\": {\n        \"start_date\": [\n            \"Start date is required.\"\n        ],\n        \"end_date\": [\n            \"End date is required.\"\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Invalid Date Format",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?start_date=28-02-2026&end_date=31-12-2026",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "28-02-2026"
+                },
+                {
+                  "key": "end_date",
+                  "value": "31-12-2026"
+                }
+              ]
+            },
+            "description": "Expect 422. Dates must be valid date format (Y-m-d)."
+          },
+          "response": [
+            {
+              "name": "FAIL - Invalid Date Format",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?start_date=28-02-2026&end_date=31-12-2026",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "28-02-2026"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "31-12-2026"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:31:39 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase summary retrieved successfully.\",\n    \"filters\": {\n        \"start_date\": \"28-02-2026\",\n        \"end_date\": \"31-12-2026\",\n        \"vendor_id\": null\n    },\n    \"total_vendors\": 0,\n    \"data\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "FAIL - Vendor Not Found",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01&end_date=2026-12-31&vendor_id=9999",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report",
+                "purchase-summary"
+              ],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2026-12-31"
+                },
+                {
+                  "key": "vendor_id",
+                  "value": "9999"
+                }
+              ]
+            },
+            "description": "Expect 422. vendor_id 9999 does not exist."
+          },
+          "response": [
+            {
+              "name": "FAIL - Vendor Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/report/purchase-summary?start_date=2026-01-01&end_date=2026-12-31&vendor_id=9999",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "report",
+                    "purchase-summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2026-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-12-31"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "9999"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "localhost:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.3.26"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 09:31:45 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Vendor not found.\",\n    \"errors\": {\n        \"vendor_id\": [\n            \"Vendor not found.\"\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Part 4 – SQL Debugging",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/debug/sql-analysis",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "debug",
+            "sql-analysis"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Part 4 – SQL Debugging",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/debug/sql-analysis",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "debug",
+                "sql-analysis"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Host",
+              "value": "localhost:8000"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            },
+            {
+              "key": "X-Powered-By",
+              "value": "PHP/8.3.26"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, private"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 28 Feb 2026 09:46:27 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"title\": \"Analisis Debugging SQL\",\n    \"original_query\": \"\\n                SELECT v.name, SUM(p.total)\\n                FROM vendors v\\n                JOIN purchases p ON p.vendor_id = v.id\\n                GROUP BY v.id\\n            \",\n    \"problems\": [\n        {\n            \"issue\": \"Ada kolom di SELECT yang nggak masuk ke GROUP BY\",\n            \"explanation\": \"Kolom v.name dipanggil di SELECT tapi nggak ada di GROUP BY. Kalau mode ONLY_FULL_GROUP_BY di MySQL nyala (bawaan sejak MySQL 5.7.5), query ini bakal error. Databasenya bingung mau nampilin nilai v.name yang mana buat tiap grup v.id.\"\n        },\n        {\n            \"issue\": \"Hasil SUM nggak pakai alias\",\n            \"explanation\": \"Fungsi SUM(p.total) nggak dikasih alias. Kolom hasilnya jadi nggak punya nama, nanti bakal repot pas datanya mau dipanggil di kode aplikasi.\"\n        },\n        {\n            \"issue\": \"Nggak ada ORDER BY\",\n            \"explanation\": \"Buat query laporan, datanya harus diurutkan biar masuk akal. Tanpa ORDER BY, urutan data yang keluar bakal acak dan nggak konsisten.\"\n        }\n    ],\n    \"why_it_matters\": \"Walaupun misal settingan MySQL-nya longgar dan query ini bisa jalan tanpa error, hasilnya tetap acak. Nilai v.name yang keluar bisa dari data mana aja di grup itu. Ini bahaya karena jatuhnya silent bug — kelihatannya jalan normal padahal datanya ngaco dan nggak bisa dipercaya. Kalau di mode strict, udah pasti langsung error.\",\n    \"fixed_query\": \"\\n                SELECT\\n                    v.id,\\n                    v.name,\\n                    COUNT(p.id)      AS total_purchases,\\n                    SUM(p.total)     AS total_nominal\\n                FROM vendors v\\n                INNER JOIN purchases p ON p.vendor_id = v.id\\n                GROUP BY v.id, v.name\\n                ORDER BY total_nominal DESC\\n            \",\n    \"what_changed\": {\n        \"Nambahin v.name ke GROUP BY\": \"Buat benerin error ONLY_FULL_GROUP_BY. Semua kolom di SELECT yang nggak diagregasi wajib masuk ke GROUP BY.\",\n        \"Nambahin v.id ke SELECT\": \"Best practice buat selalu nampilin ID, biar di frontend/aplikasi gampang kalau mau nge-referensiin datanya.\",\n        \"Ngasih alias total_nominal buat SUM(p.total)\": \"Biar kolom hasilnya punya nama yang jelas dan gampang ditebak.\",\n        \"Nambahin COUNT(p.id) AS total_purchases\": \"Tambahan data yang lumayan berguna buat ringkasan laporan vendor.\",\n        \"Ganti JOIN jadi INNER JOIN\": \"Biar lebih eksplisit aja. Nulis INNER JOIN bikin niat query-nya lebih jelas pas dibaca.\",\n        \"Nambahin ORDER BY total_nominal DESC\": \"Sekarang datanya udah diurutin dengan bener, dari nominal transaksi paling gede.\"\n    }\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    }
+  ]
+}
